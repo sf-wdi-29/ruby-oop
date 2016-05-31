@@ -48,7 +48,7 @@ Everything in Ruby is an Object; however, we almost never use plain vanilla Obje
 
 >How can we prove that the Hash we just created inherited from `Basic Object`? Hint: try `.superclass`.
 
-## Why OOP? (10 mintues)
+## Why OOP?
 
 #### Easy to Understand
 
@@ -534,7 +534,7 @@ focus.ride_in_back
 #=> @speed=0, @color="green", @make="Ford">
 ```
 
-*Note:* All subclasses share the same class variable, so changing a class variable within a subclass changes the class variable for the base class and all other subclasses. This can be good when, for instance, we want to update the total `Car` count whenever a new `Pickup` is created. However, `Pickup`'s `@@count` will always be equal to the total `Car` count.
+>In this example all subclasses share the same `@@count` class variable, so changing a class variable within a subclass changes the class variable for the base class and all other subclasses.
 
 ## Super
 
@@ -610,6 +610,48 @@ class Person < Animal
 end
 ```
 </details>
+
+##Private Methods
+
+By default all instance and class methods are *public*. This means they're visible to other objects. An analogy: they're functions that have their own buttons on the outside of the machine, like a car's turn signal.
+
+There may be methods other objects don't need to know about. Let's imagine a `User` class that has a password that gets encrypted when initialized...
+
+>Exercise: Turn to a partner and identify any parts of the code you are unclear about.
+
+```rb
+require 'base64'
+class User
+  attr_accessor :firstname, :lastname
+  @@all = []
+
+  def initialize(firstname, lastname, password)
+    @firstname = firstname
+    @lastname = lastname
+    @password = encrypt(password)
+    @@all.push(self)
+  end
+
+  def full_name
+    "#{@firstname.capitalize} #{@lastname.capitalize}"
+  end
+
+  def User.all
+    @@all
+  end
+
+  private
+  def encrypt(password)
+    Base64.encode64(password)
+  end
+end
+```
+```rb
+juan = User.new("Juan", "Juanson", "wombat")
+# #<User @firstname="Juan" @password="tabmow">
+juan.encrypt("wombat")
+# Error! Private method `encrypt`
+```
 
 ![ruby, ruby, ruby, ruby!](http://treasure.diylol.com/uploads/post/image/261103/resized_all-the-things-meme-generator-ruby-ruby-ruby-ruby-204707.jpg)
 [ruby, ruby, ruby, ruby!](https://youtu.be/qObzgUfCl28?t=50s)
