@@ -47,7 +47,7 @@ To create instances of our class, we will create a variable and assign it the re
 ```ruby
 fiat = Car.new
 fiat.class
-=> Car
+#=> Car
 ```
 
 ### Instance methods
@@ -74,7 +74,7 @@ fiat.drive
 
 ```ruby
 car.race
-=> "And I'm off!"
+#=> "And I'm off!"
 ```
 
 >Classes are analogous to constructors in JavaScript.
@@ -103,12 +103,12 @@ end
 vw = Car.new
 vw.color = "black"
 vw.color
-=> "black"
+#=> "black"
 
 bmw = Car.new
 bmw.color = "yellow"
 bmw.color
-=> "yellow"
+#=> "yellow"
 ```
 
 >Note: `color=` is a method. Additionally ruby doesn't require parenthesis for arguments passed into a method. As a result, calling this method looks very much like an assignment (which is the point).
@@ -121,7 +121,7 @@ bmw.color
 fiat = Car.new
 fiat.cc = "500"
 fiat.cc
-=> "500"
+#=> "500"
 ```
 
 Every time an instance of `Car` is assigned a color, it will have its *own* instance variable named `@color`.
@@ -284,19 +284,19 @@ end
 # Create a new animal
 zazu = Animal.new("hornbill")
 zazu.type
-=> "hornbill"
+#=> "hornbill"
 # Animal is awake by default
 zazu.state
-=> "awake"
+#=> "awake"
 # Make the animal sleep
 zazu.sleep
-=> "asleep"
+#=> "asleep"
 # Make the animal wake up
 zazu.wake
-=> "awake"
+#=> "awake"
 # Feed the animal
 zazu.eat("bugs")
-=> "Yum! I, as a hornbill love to eat bugs!"
+#=> "Yum! I, as a hornbill love to eat bugs!"
 ```
 
 <details><summary>Example solution</summary>
@@ -363,7 +363,7 @@ class Car
 end
 
 Car.count
-# => 0
+# #=> 0
 ```
 
 Our car count isn't actually counting anything yet!  We'll update the count in the `initialize` method so that it increases each time a car is created.
@@ -385,15 +385,15 @@ class Car
 end
 
 Car.count
-# => 0
+# #=> 0
 
 bmw = Car.new('bmw', 'white')
 Car.count
-# => 1
+# #=> 1
 
 audi = Car.new('audi', 'silver')
 Car.count
-# => 2
+# #=> 2
 ```
 
 ##Inheritance
@@ -456,20 +456,20 @@ Even though we didn't define the `accelerate` method again, a pickup truck will 
 ```ruby
 truck_one = Pickup.new("red", "Ford", 100)
 truck_one.speed
-=> 0
+#=> 0
 truck_one.accelerate(40)
 truck_one.speed
-=> 40
+#=> 40
 ```
 
 Inheritance doesn't go the other way, new cars don't know how to use the `ride_in_back` behavior.
 
 ```ruby
 focus = Car.new("green", "Ford")
-#=> #<Car:0x007f8c4c1b3520 @speed=0, @color="green", @make="Ford">
+##=> #<Car:0x007f8c4c1b3520 @speed=0, @color="green", @make="Ford">
 focus.ride_in_back
-#=> NoMethodError: undefined method `ride_in_back' for #<Car:0x007f8c4c1b3520 
-#=> @speed=0, @color="green", @make="Ford">
+##=> NoMethodError: undefined method `ride_in_back' for #<Car:0x007f8c4c1b3520 
+##=> @speed=0, @color="green", @make="Ford">
 ```
 
 *Note:* All subclasses share the same class variable, so changing a class variable within a subclass changes the class variable for the base class and all other subclasses. This can be good when, for instance, we want to update the total `Car` count whenever a new `Pickup` is created. However, `Pickup`'s `@@count` will always be equal to the total `Car` count.
@@ -503,19 +503,19 @@ justin = Person.new(33, "male", "Justin")
 jimmy = Person.new(27, "male", "Jimmy")
 # Inherit from animals
 justin.state
-=> "awake"
+#=> "awake"
 # Greet the world
 justin.greet
-=> "Hi, I'm Justing. I'm a male, and 33 years old."
+#=> "Hi, I'm Justing. I'm a male, and 33 years old."
 # Eat food
 justin.eat('carrots')
-=> "Yum! I am eating carrots!"
+#=> "Yum! I am eating carrots!"
 # But not other people
 jimmy.eat('person')
-=> "Sir! I am NOT a cannibal!"
+#=> "Sir! I am NOT a cannibal!"
 # Keep track of the people count
 Person.total
-=> 2
+#=> 2
 ```
 
 <details><summary>Example solution</summary>
