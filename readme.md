@@ -554,4 +554,6 @@ end
 
 ##Additional Resources
 
-* d
+* [Tutorial Point: Object Oriented Ruby](http://www.tutorialspoint.com/ruby/ruby_object_oriented.htm)
+* [Bastards Book of Ruby: Object Oriented Concepts](http://ruby.bastardsbook.com/chapters/oops/)
+* [Sandi Metz: Object Orient Design (video)](https://vimeo.com/12350535)
