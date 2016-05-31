@@ -47,7 +47,9 @@ end
 To create instances of our class, we will create a variable and assign it the return value of the `Car` class's `Car.new` method.
 
 ```ruby
-car = Car.new
+fiat = Car.new
+fiat.class
+=> Car
 ```
 
 ### Instance methods
@@ -57,7 +59,7 @@ We are able to create instances of a `Car`, but our class is *very* simple and o
 ```ruby
 class Car
   def drive
-    puts "You're going places!"
+    "You're going places!"
   end
 end
 ```
@@ -65,42 +67,31 @@ end
 Now every car we create will have a "drive" behavior.
 
 ```ruby
-car.drive
+fiat.drive
 ```
 
+##Challenge: Race
 
-**Challenge:**
-How do we create a class in Ruby? 
+**Enable this code:**
 
-Goal: Let's create a Car that goes "Vroom" when it's first *initialized*
+```ruby
+car.race
+=> "And I'm off!"
+```
 
-*Refresher: Classes are datatypes used to create more data. They are analogous to constructors in JavaScript.*
+*Refresher: Classes are analogous to constructors in JavaScript.*
 
 ###Attributes
 
 What should we do if we want to set attributes on the car, such as a paint color and year?
 
-**Challenge:**
-Enable this code...
-
-```ruby
-fiat = Car.new
-fiat.color = "hot pink"
-fiat.color
-=> "hot pink"
-```
-
-*Hint: Use `attr_accessor`.*
-
-*Bonus: Don't use `attr_accessor`*
-
 ###Instance Variables
 
 Let's give each instance of `Car` a color using instance variables.
 
-An instance variable -- which begins with the `@` symbol -- has the capability of storing data for each instance of a class.
+An instance variable, which begins with the `@` symbol, has the capability of storing data for each instance of a class.
 
-JavaScript lets us access variables inside objects with syntax like `obj.var` or `obj["var"]`. In Ruby, we'll create getter and setter methods by hand instead of accessing instance variables directly. We can then access the getters and setters with dot notation.  Let's look at an example.
+To do this, we'll create getter and setter methods, first by hand and then with a shortcut. We do this instead of accessing instance variables directly. We can then access the getters and setters with dot notation.  Let's look at an example.
 
 ```ruby
 class Car
@@ -113,28 +104,40 @@ class Car
   end
 end
 
-car_one = Car.new
-car_one.color = "green"
-car_one.color
+vw = Car.new
+vw.color = "black"
+vw.color
+=> "black"
 
-car_two = Car.new
-car_two.color = "black"
-car_two.color
+bmw = Car.new
+bmw.color = "yellow"
+bmw.color
+=> "yellow"
+```
 
-car_three = Car.new
-car_three.color
+##Challenge: Engine Size
+
+**Enable this code:**
+
+```ruby
+fiat = Car.new
+fiat.cc = "500"
+fiat.cc
+=> "500"
 ```
 
 Every time an instance of `Car` is assigned a color, it will have its *own* instance variable named `@color`.
 
 ###Initialization
 
+Goal: Let's create a Car that goes "Vroom" when it's first *initialized*
+
 In Ruby there's a built-in method named `initialize` that is invoked every time a class is instantiated. Let's prove that this is true by adding a method named `initialize`.
 
 ```ruby
 class Car
   def initialize
-    puts "A brand new carrrr!!!!!!"
+    "Vroom"
   end
 
   def color=(color)
@@ -150,7 +153,7 @@ bmw = Car.new
 audi = Car.new
 ```
 
-If we apply this new knowledge, we can re-write our class definition to give a car a color during instance creation.  
+Goal: let's give the car a color when it's created.  
 
 ```ruby
 class Car
@@ -178,10 +181,6 @@ bmw.color=("red")
 bmw.color="red with FLAME decals"
 # both work to change the car's color
 ```
-
-**Think Break!**
-
-How does this compare to using JavaScript constructors to create objects?
 
 
 ### `attr_*`
@@ -279,7 +278,9 @@ class Car
 end
 ```
 
-#####Enable this code:
+##Challenge: Animals
+
+**Enable this code:**
 
 ```ruby
 # Create a new animal
@@ -379,7 +380,7 @@ class Car
   def initialize(color, make)
     @color = color
     @make = make
-    @@count = @@count + 1
+    @@count += 1
   end
 
   def self.count
@@ -419,7 +420,7 @@ class Car
     @speed = 0
     @color = color
     @make = make
-    @@count = @@count + 1
+    @@count += 1
   end
 
   def self.count
@@ -445,7 +446,7 @@ class Pickup < Car
     @color = color
     @make = make
     @bed_capacity = bed_capacity
-    @@count = @@count + 1
+    @@count += 1
   end
 
   def ride_in_back
@@ -475,7 +476,7 @@ focus.ride_in_back
 #=> @speed=0, @color="green", @make="Ford">
 ```
 
-*Note:* All subclasses share the same class variable, so changing a class variable within a subclass changes the class variable for the base class and all other subclasses. This can be good when, for instance, we want to update the total `Car` count whenever a new `Pickup` is created. However, `Pickup`'s `@@count` will always be equal to the total `Car` count.  
+*Note:* All subclasses share the same class variable, so changing a class variable within a subclass changes the class variable for the base class and all other subclasses. This can be good when, for instance, we want to update the total `Car` count whenever a new `Pickup` is created. However, `Pickup`'s `@@count` will always be equal to the total `Car` count.
 
 ### Super
 
@@ -487,7 +488,7 @@ class Pickup < Car
   def initialize(color, make, bed_capacity)
     super(color, make)
     @bed_capacity = bed_capacity
-    @@count = @@count + 1
+    @@count += 1
   end
 
   def ride_in_back
@@ -496,32 +497,60 @@ class Pickup < Car
 end
 ```
 
-### String Interpolation
+##Challenge: People
 
-Interpolate Ruby into strings, referencing methods and variables.
+**Enable this code**
 
-``` ruby
-class Vehicle
-      attr_accessor :num_wheels
-  def how_many_wheels?
-    "I have #{num_wheels} wheels" #string interpolation
-  end
-end
-
-class Boat < Vehicle
-  def initialize
-      @num_wheels = 0
-  end
-end
-
-class EighteenWheeler < Vehicle
-  def initialize
-      @num_wheels = 18
-  end
-end
-
-massive_truck = EighteenWheeler.new
-massive_truck.how_many_wheels?
-=> "I have 18 wheels"
+```ruby
+# Create people
+justin = Person.new(33, "male", "Justin")
+jimmy = Person.new(27, "male", "Jimmy")
+# Inherit from animals
+justin.state
+=> "awake"
+# Greet the world
+justin.greet
+=> "Hi, I'm Justing. I'm a male, and 33 years old."
+# Eat food
+justin.eat('carrots')
+=> "Yum! I am eating carrots!"
+# But not other people
+jimmy.eat('person')
+=> "Sir! I am NOT a cannibal!"
+# Keep track of the people count
+Person.total
+=> 2
 ```
+
+<details><summary>Example solution</summary>
+
+```ruby
+class Person < Animal
+  @@count = 0
+  attr_accessor :age, :gender, :name
+  def initialize(age, gender, name)
+    super("person")
+    @age = age
+    @gender = gender
+    @name = name
+    @@count += 1
+  end
+
+  def self.total
+    @@count
+  end
+
+  def eat(food)
+    food == "person" ? 
+      "Sir! I am NOT a cannibal!" :
+      "Yum! I am eating #{food}!"
+  end
+
+  def greet
+    "Hi, I'm #{@name}. I'm a #{@type}, and #{@age} years old."
+  end
+end
+```
+
+</details>
 
