@@ -4,25 +4,24 @@
 By the end of lesson, students will be able to...
 
 * Distinguish between hashes & classes in Ruby
-* Understand what "everything is an object means"
-* Initialize classes
-* Define attributes & instance methods
-* Distinguish between instance and class variables
+* Initialize instances of a class
+* Define getter and setter methods
+* Compare and contrast instance and class variables
+* Use inheritance to extend the behavior of a class
 
-##Hashes (10m)
+##Hashes
 
 Let's create a new Hash
 
 * Hashes are simple key value stores.
 
-**Challenge:**
 How can I organize my data using key/value pairs in Ruby? Like so:
 
 ```ruby
-{:name=>"Napoleon", :fav_food=>"steak", :skills=>["archery", "combat", "egg farming"]}
+{name: "Napoleon", fav_food: "steak", skills: ["archery", "combat", "egg farming"]}
 ```
 
-##Objects (10m)
+##Objects
 
 * Everything in Ruby is an Object; however, we almost never use plain vanilla Objects because there are more sophisticated implementations of them such a `String`, `Integer`, and `Hash`.
 
@@ -33,7 +32,7 @@ How can we prove that the Hash we just created inherited from `Basic Object`?
 
 ![Class inheritance](http://i.stack.imgur.com/rvcEi.png)
 
-##Classes (10m)
+##Classes
 
 ### Define and Instantiate a Class
 
