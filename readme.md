@@ -68,7 +68,7 @@ Now every car we create will have a "drive" behavior.
 fiat.drive
 ```
 
-##Challenge: Race (5m)
+###Challenge: Race (5m)
 
 **Enable this code:**
 
@@ -79,7 +79,7 @@ car.race
 
 >Classes are analogous to constructors in JavaScript.
 
-###Attributes & Instance Variables
+##Attributes & Instance Variables
 
 What should we do if we want to set attributes on the car, such as a paint color and year?
 
@@ -126,7 +126,7 @@ fiat.cc
 
 Every time an instance of `Car` is assigned a color, it will have its *own* instance variable named `@color`.
 
-###Initialization
+##Initialization
 
 >Goal: let's create a Car that goes "Vroom" when it's first *initialized*
 
@@ -181,7 +181,7 @@ bmw.color="red with FLAME decals"
 ```
 
 
-### `attr_*`
+## `attr_*`
 
 If we add more methods to our class, we will start to notice a lot of repetition:
 
@@ -326,7 +326,7 @@ end
 </details>
 
 
-### Class Methods, Class Variables, and Self
+##Class variables, class methods, and `self`
 
 Now, there may be moments where we want to get or set properties and behaviors that relate to all instances of a class, as a group. In this case, we need to explore class methods and class variables.
 
@@ -343,7 +343,6 @@ class Car
     @make = make
   end
 end
-
 ```
 
 Adding the class variable was easy enough.  Next, we'll define a getter for it using the keyword `self`. We will explore `self` more during the next several days. For now, know that if you place the word `self` next to a method name, it places the method on the class instead of on an instance of the class.
@@ -366,7 +365,6 @@ end
 Car.count
 # => 0
 ```
-
 
 Our car count isn't actually counting anything yet!  We'll update the count in the `initialize` method so that it increases each time a car is created.
 
@@ -398,14 +396,14 @@ Car.count
 # => 2
 ```
 
-## Inheritance
+##Inheritance
 
 Inheritance lets us reuse code from one class as we create subtypes of that class.
 
 
 ### Base Class
 
-We'll use our `Car` class as a base class and make a new `Pickup` class that inherits from `Car`.  Another way to say this is that `Pickup` will be a *subclass* of `Car`.  You can also think of `Car` as `Pickup`'s parent and `Pickup` as `Car`'s child (as in a class inheritance tree).
+We'll use our `Car` class as a *baseclass* and make a new `Pickup` class that inherits from `Car`.  Another way to say this is that `Pickup` will be a *subclass* of `Car`.  You can also think of `Car` as `Pickup`'s *parent* and `Pickup` as `Car`'s *child* (as in a class inheritance tree).
 
 Notice that this `Car` class is spruced up with a new `@speed` instance variable and an `accelerate` instance method.
 
@@ -476,7 +474,7 @@ focus.ride_in_back
 
 *Note:* All subclasses share the same class variable, so changing a class variable within a subclass changes the class variable for the base class and all other subclasses. This can be good when, for instance, we want to update the total `Car` count whenever a new `Pickup` is created. However, `Pickup`'s `@@count` will always be equal to the total `Car` count.
 
-### Super
+## Super
 
 We can refactor the `Pickup` class with the super keyword, that is a placeholder for anything the car has previously defined. The example below is equivalent to above.
 
@@ -549,6 +547,5 @@ class Person < Animal
   end
 end
 ```
-
 </details>
 
