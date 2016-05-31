@@ -363,7 +363,7 @@ class Car
 end
 
 Car.count
-# #=> 0
+#=> 0
 ```
 
 Our car count isn't actually counting anything yet!  We'll update the count in the `initialize` method so that it increases each time a car is created.
@@ -385,15 +385,15 @@ class Car
 end
 
 Car.count
-# #=> 0
+#=> 0
 
 bmw = Car.new('bmw', 'white')
 Car.count
-# #=> 1
+#=> 1
 
 audi = Car.new('audi', 'silver')
 Car.count
-# #=> 2
+#=> 2
 ```
 
 ##Inheritance
@@ -466,10 +466,10 @@ Inheritance doesn't go the other way, new cars don't know how to use the `ride_i
 
 ```ruby
 focus = Car.new("green", "Ford")
-##=> #<Car:0x007f8c4c1b3520 @speed=0, @color="green", @make="Ford">
+#=> #<Car:0x007f8c4c1b3520 @speed=0, @color="green", @make="Ford">
 focus.ride_in_back
-##=> NoMethodError: undefined method `ride_in_back' for #<Car:0x007f8c4c1b3520 
-##=> @speed=0, @color="green", @make="Ford">
+#=> NoMethodError: undefined method `ride_in_back' for #<Car:0x007f8c4c1b3520 
+#=> @speed=0, @color="green", @make="Ford">
 ```
 
 *Note:* All subclasses share the same class variable, so changing a class variable within a subclass changes the class variable for the base class and all other subclasses. This can be good when, for instance, we want to update the total `Car` count whenever a new `Pickup` is created. However, `Pickup`'s `@@count` will always be equal to the total `Car` count.
