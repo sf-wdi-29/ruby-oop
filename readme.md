@@ -1,15 +1,38 @@
+![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
+
 #Ruby <3's OOP
 
-##Learning Objectives
-By the end of lesson, students will be able to...
+### Why is this important?
+<!-- framing the "why" in big-picture/real world examples -->
+*This workshop is important because:*
 
-* Distinguish between hashes & classes in Ruby
+OOP Enables you write code that is:
+
+* Easy to understand
+* Better organized to handle complexity
+* More consistant
+* Modular
+
+### What are the objectives?
+<!-- specific/measurable goal for students to achieve -->
+*After this workshop, developers will be able to:*
+
+* Distinguish between hashes & classes
 * Initialize instances of a class
+* Explain how `.new()` and `initialize()` are related
 * Define getter and setter methods
 * Compare and contrast instance and class variables
 * Use inheritance to extend the behavior of a class
+* Define `private` methods on a class
 
-##Hashes
+### Where should we be now?
+<!-- call out the skills that are prerequisites -->
+*Before this workshop, developers should already be able to:*
+
+- Write basic Ruby
+- Have exposure to OOP concepts
+
+##Review: Hashes & Objects
 
 Let's create a new Hash
 
@@ -21,15 +44,54 @@ Let's create a new Hash
 {name: "Napoleon", fav_food: "steak", skills: ["archery", "combat", "egg farming"]}
 ```
 
-##Objects
+Everything in Ruby is an Object; however, we almost never use plain vanilla Objects because there are more sophisticated implementations of them such a `String`, `Integer`, and `Hash`.
 
-* Everything in Ruby is an Object; however, we almost never use plain vanilla Objects because there are more sophisticated implementations of them such a `String`, `Integer`, and `Hash`.
+>How can we prove that the Hash we just created inherited from `Basic Object`? Hint: try `.superclass`.
 
->How can we prove that the Hash we just created inherited from `Basic Object`?
+## Why OOP? (10 mintues)
 
-###SuperClass Inheritance Tree
+#### Easy to Understand
 
-![Class inheritance](http://i.stack.imgur.com/rvcEi.png)
+Objects help us build programs that model how we tend to think about the world. Instead of a bunch of variables and functions (procedural style), we can group relevant data and functions into objects, and think about them as individual, self-contained units. This grouping of properties (data) and methods is called *encapsulation*.
+
+#### Managing Complexity
+
+This is especially important as our programs get more and more complex. We can't keep all the code (and what it does) in our head at once. Instead, we often want to think just a portion of the code.
+
+Objects help us organize and think about our programs. If I'm looking at code for a Squad object, and I see it has associated *people*, and those people can dance when the squad dances, I don't need to think about or see all the code related to a person dancing. I can just think at a high level "ok, when a squad dances, all it's associated people dance". This is a form of *abstraction*... I don't need to think about the details, just what's happening at a high-level.
+
+#### Ensuring Consistency
+
+One side effect of *encapsulation* (grouping data and methods into objects) is that these objects can be in control of their data. This usually means ensuring consistency of their data.
+
+Consider the bank account example... I might define a bank account object such that you can't directly change it's balance. Instead, you have to use the `withdraw` and `deposit` methods. Those methods are the *interface* to the account, and they can enforce rules for consistency, such as "balance can't be less than zero".
+
+#### Modularity
+
+If our objects are well-designed, then they interact with each other in
+well-defined ways. This allows us to refactor (rewrite) any object, and it should not impact (cause bugs) in other areas of our programs.
+
+## The OOP Process
+
+Putting your idea in a nutshell gives you a starting place for what those objects may be:
+
+> "Tic Tac Toe is a game where players try to get three squares in a row."
+
+- Game
+- Players
+- Squares
+
+> "Garnet is a site where students can track their homework and attendance."
+
+- Students
+- Homework
+- Attendance
+
+> "Amazon is a site where people can order products."
+
+- People
+- Orders
+- Products
 
 ##Classes
 
@@ -130,7 +192,7 @@ Every time an instance of `Car` is assigned a color, it will have its *own* inst
 
 >Goal: let's create a Car that goes "Vroom" when it's first *initialized*
 
-In Ruby there's a built-in method named `initialize` that is invoked every time a class is instantiated. Let's prove that this is true by adding a method named `initialize`.
+In Ruby there's a built-in method named `initialize` that is invoked every time the `.new` class method is called.
 
 ```ruby
 class Car
