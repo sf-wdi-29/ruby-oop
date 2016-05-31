@@ -15,7 +15,7 @@ Let's create a new Hash
 
 * Hashes are simple key value stores.
 
-How can I organize my data using key/value pairs in Ruby? Like so:
+>How can I organize my data using key/value pairs in Ruby? Like so:
 
 ```ruby
 {name: "Napoleon", fav_food: "steak", skills: ["archery", "combat", "egg farming"]}
@@ -25,8 +25,7 @@ How can I organize my data using key/value pairs in Ruby? Like so:
 
 * Everything in Ruby is an Object; however, we almost never use plain vanilla Objects because there are more sophisticated implementations of them such a `String`, `Integer`, and `Hash`.
 
-**Challenge:**
-How can we prove that the Hash we just created inherited from `Basic Object`?
+>How can we prove that the Hash we just created inherited from `Basic Object`?
 
 ###SuperClass Inheritance Tree
 
@@ -69,7 +68,7 @@ Now every car we create will have a "drive" behavior.
 fiat.drive
 ```
 
-##Challenge: Race
+##Challenge: Race (5m)
 
 **Enable this code:**
 
@@ -78,13 +77,11 @@ car.race
 => "And I'm off!"
 ```
 
-*Refresher: Classes are analogous to constructors in JavaScript.*
+>Classes are analogous to constructors in JavaScript.
 
-###Attributes
+###Attributes & Instance Variables
 
 What should we do if we want to set attributes on the car, such as a paint color and year?
-
-###Instance Variables
 
 Let's give each instance of `Car` a color using instance variables.
 
@@ -114,7 +111,9 @@ bmw.color
 => "yellow"
 ```
 
-##Challenge: Engine Size
+>Note: `color=` is a method. Additionally ruby doesn't require parenthesis for arguments passed into a method. As a result, calling this method looks very much like an assignment (which is the point).
+
+###Challenge: Engine Size (5m)
 
 **Enable this code:**
 
@@ -129,7 +128,7 @@ Every time an instance of `Car` is assigned a color, it will have its *own* inst
 
 ###Initialization
 
-Goal: Let's create a Car that goes "Vroom" when it's first *initialized*
+>Goal: let's create a Car that goes "Vroom" when it's first *initialized*
 
 In Ruby there's a built-in method named `initialize` that is invoked every time a class is instantiated. Let's prove that this is true by adding a method named `initialize`.
 
@@ -152,7 +151,7 @@ bmw = Car.new
 audi = Car.new
 ```
 
-Goal: let's give the car a color when it's created.  
+>Goal: let's give the car a color when it's created.  
 
 ```ruby
 class Car
@@ -277,7 +276,7 @@ class Car
 end
 ```
 
-##Challenge: Animals
+###Challenge: Animals (10m)
 
 **Enable this code:**
 
@@ -496,7 +495,7 @@ class Pickup < Car
 end
 ```
 
-##Challenge: People
+###Challenge: People (15m)
 
 **Enable this code**
 
