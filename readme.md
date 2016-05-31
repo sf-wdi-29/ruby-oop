@@ -446,7 +446,7 @@ class Pickup < Car
   end
 
   def ride_in_back
-    puts "Bumpy but breezy!"
+    "Bumpy but breezy!"
   end
 end
 ```
@@ -488,7 +488,7 @@ class Pickup < Car
   end
 
   def ride_in_back
-    puts "Bumpy but breezy!"
+    "Bumpy but breezy!"
   end
 end
 ```
