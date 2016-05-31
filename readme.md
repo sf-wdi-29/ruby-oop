@@ -550,7 +550,7 @@ end
 </details>
 
 ![ruby, ruby, ruby, ruby!](http://treasure.diylol.com/uploads/post/image/261103/resized_all-the-things-meme-generator-ruby-ruby-ruby-ruby-204707.jpg)
-[ruby, ruby, ruby, ruby!](https://www.youtube.com/watch?v=qObzgUfCl28)
+[ruby, ruby, ruby, ruby!](https://youtu.be/qObzgUfCl28?t=50s)
 
 ##Additional Resources
 
