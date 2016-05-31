@@ -279,7 +279,52 @@ class Car
 end
 ```
 
+#####Enable this code:
 
+```ruby
+# Create a new animal
+zazu = Animal.new("hornbill")
+zazu.type
+=> "hornbill"
+# Animal is awake by default
+zazu.state
+=> "awake"
+# Make the animal sleep
+zazu.sleep
+=> "asleep"
+# Make the animal wake up
+zazu.wake
+=> "awake"
+# Feed the animal
+zazu.eat("bugs")
+=> "Yum! I, as a hornbill love to eat bugs!"
+```
+
+<details><summary>Example solution</summary>
+
+```ruby
+class Animal
+  attr_accessor :state, :type
+  def initialize(kind)
+    @type = kind
+    @state = "awake"
+  end
+
+  def sleep
+    @state = "asleep"
+  end
+
+  def wake
+    @state = "awake"
+  end
+  
+  def eat (food)
+    "Yum! I, as a #{@type} love to eat #{food}!"
+  end
+end
+```
+
+</details>
 
 
 ### Class Methods, Class Variables, and Self
