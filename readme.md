@@ -546,7 +546,6 @@ class Pickup < Car
   def initialize(color, make, bed_capacity)
     super(color, make)
     @bed_capacity = bed_capacity
-    @@count += 1
   end
 
   def ride_in_back
