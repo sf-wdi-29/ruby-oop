@@ -567,7 +567,7 @@ justin.state
 #=> "awake"
 # Greet the world
 justin.greet
-#=> "Hi, I'm Justing. I'm a male, and 33 years old."
+#=> "Hi, I'm Justin. I'm a male, and 33 years old."
 # Eat food
 justin.eat('carrots')
 #=> "Yum! I am eating carrots!"
