@@ -1,6 +1,6 @@
 ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
 
-#Ruby <3's OOP
+#Ruby & OOP
 
 ### Why is this important?
 <!-- framing the "why" in big-picture/real world examples -->
@@ -19,7 +19,7 @@ OOP Enables you write code that is:
 
 * Distinguish between hashes & classes
 * Initialize instances of a class
-* Explain how `.new()` and `initialize()` are related
+* Compare and contrast `.new()` and `initialize()`
 * Define getter and setter methods
 * Compare and contrast instance and class variables
 * Use inheritance to extend the behavior of a class
